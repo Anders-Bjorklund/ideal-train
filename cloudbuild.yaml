@@ -3,6 +3,6 @@ steps:
   - name: openjdk:17
     env: ['GRADLE_USER_HOME=cache']
     entrypoint: 'bash'
-    args: ['-c', './gradlew test']
+    args: ['-c', './gradlew', 'test']
 images: ["us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse"]
 # [END cloudbuild_gradle]
