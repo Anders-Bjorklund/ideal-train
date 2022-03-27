@@ -10,6 +10,7 @@ group = "se.hackney.softhouse"
 
 repositories {
     mavenCentral()
+    google()
 }
 
 dependencies {
