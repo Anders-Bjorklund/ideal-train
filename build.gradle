@@ -9,8 +9,8 @@ version = "1.0"
 group = "se.hackney.softhouse"
 
 repositories {
-    mavenCentral()
     gradlePluginPortal()
+    mavenCentral()
 }
 
 dependencies {
