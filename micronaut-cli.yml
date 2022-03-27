@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: se.hackney.softhouse
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, graalvm, gradle, hibernate-validator, http-client, jackson-databind, jackson-xml, java, java-application, junit, logback, micronaut-build, netty-server, readme, shade, views-thymeleaf, yaml]
