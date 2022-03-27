@@ -1,13 +1,11 @@
 # [START cloudbuild_gradle]
 steps:
   - name: openjdk:17
-    dir: '/workspace/temp'
     env: ['GRADLE_USER_HOME=cache']
-    entrypoint: 'bash'
-    args: ['-c', './gradlew', 'test']
+    entrypoint: bash
+    args: [ '-c', './gradlew', 'test']
 
   - name: 'gcr.io/cloud-builders/docker'
-    dir: '/workspace/temp'
     args: [ 'build', '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse', '--build-arg=JAR_FILE=./build/libs/softhouse-1.0-all.jar', '.' ]
 
 images: ["us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse"]
