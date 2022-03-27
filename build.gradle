@@ -33,8 +33,8 @@ application {
     mainClass.set("se.hackney.softhouse.Application")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("17")
-    targetCompatibility = JavaVersion.toVersion("17")
+    sourceCompatibility = JavaVersion.toVersion("14")
+    targetCompatibility = JavaVersion.toVersion("14")
 }
 
 graalvmNative.toolchainDetection = false
