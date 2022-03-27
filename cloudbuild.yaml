@@ -11,7 +11,7 @@ steps:
     args: ['-c', './gradlew', 'assemble']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse', '.' ]
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse', '--build-arg=JAR_FILE=build/libs/softhouse-1.0-all.jar', '.' ]
 
 images: ["us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse"]
 # [END cloudbuild_gradle]
