@@ -1,7 +1,6 @@
-
 # [START cloudbuild_gradle]
 steps:
-  - name: java:17
+  - name: openjdk:17
     env: ['GRADLE_USER_HOME=cache']
     entrypoint: 'bash'
     args: ['-c', './gradlew test']
