@@ -4,7 +4,6 @@ package se.hackney.softhouse;
 import io.micronaut.runtime.Micronaut;
 import se.hackney.softhouse.engine.Engine;
 import se.hackney.softhouse.target.People;
-import se.hackney.softhouse.target.Person;
 import se.hackney.softhouse.visitors.SortOfXmlVisitor;
 
 public class Application {
@@ -16,11 +15,11 @@ public class Application {
             Engine engine = new Engine();
             engine.extract( args[0] );
 
-            for( Person person : engine.getPeople().getPersons() ) {
-                System.out.println("Name: " + person.getFirstname() + " " + person.getLastname());
-            }
+            // for( Person person : engine.getPeople().getPersons() ) {
+            //    System.out.println("Name: " + person.getFirstname() + " " + person.getLastname());
+            // }
 
-            System.out.println("\n\n");
+            // System.out.println("\n\n");
 
             People people = engine.getPeople();
             SortOfXmlVisitor xmlVisitor = new SortOfXmlVisitor();

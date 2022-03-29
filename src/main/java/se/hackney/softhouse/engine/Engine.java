@@ -21,7 +21,7 @@ public class Engine {
         Stream< String > lines = Utils.lines(path);
 
         lines.forEach( ( a ) -> {
-            System.out.println( (index++) + ". " +  a );
+            // System.out.println( (index++) + ". " +  a );
             state = state.next( a );
             state.invoke( this, a );
         } );
