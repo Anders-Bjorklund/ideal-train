@@ -28,7 +28,6 @@ public class PState implements IState {
     @Override
     public void invoke( Engine engine, String line ) {
 
-        System.out.println("PState invoked");
         Person person = new Person();
 
         engine.getPeople().getPersons().add( person );

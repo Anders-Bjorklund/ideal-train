@@ -25,7 +25,6 @@ public class FState implements IState {
 
     @Override
     public void invoke( Engine engine, String line ) {
-        System.out.println("FState invoked");
         
         Person person = engine.getLatestPerson();
         Values details = new Values( line );

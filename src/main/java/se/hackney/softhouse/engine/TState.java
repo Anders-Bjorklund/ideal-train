@@ -28,8 +28,6 @@ public class TState implements IState {
 
     @Override
     public void invoke( Engine engine, String line ) {
-        System.out.println("TState invoked");
-        
 
         Person person = engine.getLatestPerson();
         Values numbers = new Values( line );

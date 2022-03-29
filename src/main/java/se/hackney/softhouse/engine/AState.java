@@ -27,7 +27,6 @@ public class AState implements IState {
 
     @Override
     public void invoke( Engine engine, String line ) {
-        System.out.println("AState invoked");
         
         Person person = engine.getLatestPerson();
         Values details = new Values( line );
