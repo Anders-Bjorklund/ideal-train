@@ -2,13 +2,13 @@
 steps:
   - name: gradle:7.4.1-jdk17
     env: ['GRADLE_USER_HOME=cache']
-    entrypoint: bash
-    args: [ '-c', './gradlew', 'test']
+    entrypoint: gradle
+    args: [ 'test']
 
   - name: gradle:7.4.1-jdk17
     env: ['GRADLE_USER_HOME=cache']
-    entrypoint: bash
-    args: [ '-c', './gradlew', 'assemble']
+    entrypoint: gradle
+    args: [ 'assemble']
 
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse', '--build-arg=JAR_FILE=./build/libs/softhouse-1.0-all.jar', '.' ]
