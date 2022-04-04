@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kust-test
+  name: kust-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kust-test
+  template:
+    metadata:
+      labels:
+        app: kust-test
+    spec:
+      containers:
+      - image: us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:latest
+        name: softhouse
