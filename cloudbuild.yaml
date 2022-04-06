@@ -1,40 +1,42 @@
 # [START cloudbuild_gradle]
 steps:
-  - name: gradle:7.4.1-jdk17
-    env: [ 'GRADLE_USER_HOME=cache' ]
-    entrypoint: gradle
-    args: [ 'test' ]
+  #- name: gradle:7.4.1-jdk17
+  #  env: [ 'GRADLE_USER_HOME=cache' ]
+  #  entrypoint: gradle
+  #  args: [ 'test' ]
 
-  - name: gradle:7.4.1-jdk17
-    env: [ 'GRADLE_USER_HOME=cache' ]
-    entrypoint: gradle
-    args: [ 'assemble' ]
+  # - name: gradle:7.4.1-jdk17
+   # env: [ 'GRADLE_USER_HOME=cache' ]
+   # entrypoint: gradle
+   # args: [ 'assemble' ]
 
-  - name: 'gcr.io/cloud-builders/docker'
-    args: [ 
-      'build', 
-      '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:$SHORT_SHA', 
-      '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:latest', 
-      '--build-arg=JAR_FILE=./build/libs/softhouse-1.0-all.jar', 
-      '.' 
-    ]
+  #- name: 'gcr.io/cloud-builders/docker'
+  #  args: [ 
+   #   'build', 
+    #  '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:$SHORT_SHA', 
+     # '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:latest', 
+      #'--build-arg=JAR_FILE=./build/libs/softhouse-1.0-all.jar', 
+      #'.' 
+    #]
 
-  - name: 'gcr.io/cloud-builders/docker'
-    args: [ 
-      'push', 
-      'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:$SHORT_SHA', 
-    ]
+  #- name: 'gcr.io/cloud-builders/docker'
+  #  args: [ 
+  #    'push', 
+  #    'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:$SHORT_SHA', 
+  #  ]
 
   - name: gcr.io/cloud-builders/kubectl
     env:  
       - 'CLOUDSDK_CONTAINER_CLUSTER=universal'
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+    
     args: [
-      'set', 'image', 'deploy/kust-test', 'softhouse=us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:$SHORT_SHA'
+      'set', 'image', 'deployment.apps/kust-test', 'softhouse=us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:5c64fd4'
     ]
 
-images: ["us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse"]
+#images: ["us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse"]
 
-tags:
-  - $SHORT_SHA
-  - latest
+#tags:
+#  - $SHORT_SHA
+#  - latest
 # [END cloudbuild_gradle]
